@@ -324,6 +324,9 @@ open class SwiftResponsiveLabel: UILabel {
 		var textOffset = CGPoint.zero
 		let textBounds = self.textKitStack.boundingRectForCompleteText()
 		let paddingHeight = (rect.size.height - textBounds.size.height) / 2.0
+		if textBounds.origin.x > 0 {
+			textOffset.x = 0 - textBounds.origin.x
+		}
 		if paddingHeight > 0 {
 			textOffset.y = paddingHeight
 		} else {
